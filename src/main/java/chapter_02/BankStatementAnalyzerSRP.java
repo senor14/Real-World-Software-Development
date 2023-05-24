@@ -8,6 +8,11 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+리팩터링 덕분에 메인 응용프로그램에서 파싱 로직을 구현하는 부분이 사라짐
+대신 파싱 기능을 다른 클래스와 메서드에 위임했고, 이 기능을 독립적으로 구현했음
+다양한 문제를 처리해야 하는 새 요구 사항이 들어오면, BankStatementCSVParse 클래스로 캡슐화된 기능을 재사용해 구현함
+ */
 public class BankStatementAnalyzerSRP {
     private static final String RESOURCE = "src/main/resources/";
 
