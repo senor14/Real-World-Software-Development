@@ -22,11 +22,10 @@ public class BankStatementAnalyzerSRP {
 
         final String fileName = args[0];
         final Path path = Paths.get(RESOURCE + fileName);
-
         final List<String> lines = Files.readAllLines(path);
 
         final List<BankTransaction> bankTransactions
-                = bankStatementCSVParser.parseLinesFromCSV(lines);
+                = bankStatementCSVParser.parseLinesFrom(lines);
 
 
         System.out.println("The total for all transactions is " + calculateTotalAmount(bankTransactions));
