@@ -11,7 +11,7 @@ import java.util.List;
 - 데이터에 문제가 있어서 금액을 파싱하지 못 한다면?
 - 행의 데이터가 완벽하지 않다면?
  */
-public class BankTransactionAnalyzerSimple {
+public class BankStatementAnalyzerSimple {
     private static final String RESOURCES = "src/main/resources/";
 
     public static void main(final String[] args) throws Exception {
