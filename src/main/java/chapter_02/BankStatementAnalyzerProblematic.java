@@ -9,6 +9,9 @@ import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/*
+ BankStatementAnalyzerSimple 코드를 그대로 밑에 복사해서 붙여넣음
+ */
 public class BankStatementAnalyzerProblematic {
     private static final String RESOURCES = "src/main/resources/";
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
