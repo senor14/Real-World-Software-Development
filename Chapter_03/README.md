@@ -16,3 +16,9 @@ findTransactionsInMonthAndGreater()) 같이 복사해서 추가하고 수정하�
 여기서는 BankTransactionFilter 인터페이스를 만들어 문제를 해결한다. BankTransactionFilter 인터페이스는 완료된
 BankTransaction 객체를 인수로 받아 불리언을 반환하는 test() 메서드 한 개를 포함한다. 여기서 test() 메서드는
 BankTransaction 의 모든 속성에 접근할 수 있으므로 이를 이용해 특정 조건의 참, 거짓 여부를 판단한다.
+- 이제 새로운 요구 사항에 맞는 필터를 구현한 후(BankTransactionIsInFebruaryAndExpensive 클래스), 아래와 같이 
+findTransactions() 메서드의 인수로 필터의 인스턴스를 전달할 수 있다.
+```
+final List<BankTransaction transactions 
+= bankStatementProcessor.findTransactions(new BankTransactionIsInFebruaryAndExpensive());
+```
