@@ -1,6 +1,7 @@
 package chapter_03;
 
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankStatementProcessor {
@@ -37,5 +38,40 @@ public class BankStatementProcessor {
             }
         }
         return total;
+    }
+
+    // 특정 금액 이상의 은행 거래 내역 찾기
+    public List<BankTransaction> findTransactionGreaterThanEqual(final int amount) {
+        final List<BankTransaction> result = new ArrayList<>();
+        for (final BankTransaction bankTransaction : bankTransactions) {
+            if (bankTransaction.getAmount() >= amount) {
+                result.add(bankTransaction);
+            }
+        }
+        return result;
+    }
+
+    // findTransactionGreaterThanEqual 를 복사하여 수정
+    // 코드가 중복되어 소프트웨어를 불안정하게 만듦. 이런 방법으로는 복잡한 요구 사항을 만족시키기 어려움.
+    public List<BankTransaction> findTransactionsInMonth(final Month month) {
+        final List<BankTransaction> result = new ArrayList<>();
+        for (final BankTransaction bankTransaction : bankTransactions) {
+            if (bankTransaction.getDate().getMonth() == month) {
+                result.add(bankTransaction);
+            }
+        }
+        return result;
+    }
+
+
+    // 역시 위와 같이 복사, 수정
+    public List<BankTransaction> findTransactionsInMonthAndGreater(final Month month, final int amount) {
+        final List<BankTransaction> result = new ArrayList<>();
+        for (final BankTransaction bankTransaction : bankTransactions) {
+            if (bankTransaction.getDate().getMonth() == month && bankTransaction.getAmount() >= amount) {
+                result.add(bankTransaction);
+            }
+        }
+        return result;
     }
 }
