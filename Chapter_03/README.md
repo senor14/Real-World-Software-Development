@@ -22,3 +22,17 @@ findTransactions() 메서드의 인수로 필터의 인스턴스를 전달할 �
 final List<BankTransaction transactions 
 = bankStatementProcessor.findTransactions(new BankTransactionIsInFebruaryAndExpensive());
 ```
+- 하지만 요구 사항이 있을 때마다 별도의 클래스를 만들어야 한다. 이는 큰 의미가 없는 코드를 반복해서 만드는 귀찮은
+작업이다. **람다 표현식** 과 **메서드 레퍼런스** 를 사용하여 이름 없이 인터페이스 구현 객체를 코드 블록 형태로
+전달할 수 있다.
+```
+final List<BankTransaction transactions 
+= bankStatementProcessor.findTransactions(bankTransaction ->
+            bankTransaction.getDate().getMonth() == Month.FEBRUARY
+            && bankTransaction.getAmount() >= 1_000);
+);
+```
+- 요약하자면, 다음과 같은 장점 덕분에 개방/폐쇄 원칙을 사용한다.
+  * 기존 코드를 바꾸지 않으므로 기존 코드가 잘못될 가능성이 줄어든다.
+  * 코드가 중복되지 않으므로 기존 코드의 재사용성이 높아진다.
+  * 결합도가 낮아지므로 코드 유지보수성이 좋아진다.
