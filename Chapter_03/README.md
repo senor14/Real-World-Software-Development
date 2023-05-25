@@ -12,3 +12,7 @@ findTransactionsInMonthAndGreater()) 같이 복사해서 추가하고 수정하�
   * 거래 내역의 여러 속성을 조합할수록 코드가 점점 복잡해진다.
   * 반복 로직과 비즈니스 로직이 결합되어 분리하기가 어려워진다.
   * 코드를 반복한다.
+- 이런 상황에서 개방/폐쇄 원칙을 적용하면 코드를 직접 바꾸지 않고 해당 메서드나 클래스의 동작을 바꿀 수 있다.
+여기서는 BankTransactionFilter 인터페이스를 만들어 문제를 해결한다. BankTransactionFilter 인터페이스는 완료된
+BankTransaction 객체를 인수로 받아 불리언을 반환하는 test() 메서드 한 개를 포함한다. 여기서 test() 메서드는
+BankTransaction 의 모든 속성에 접근할 수 있으므로 이를 이용해 특정 조건의 참, 거짓 여부를 판단한다.
